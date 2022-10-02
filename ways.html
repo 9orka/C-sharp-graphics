@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/c.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>C# Graphic</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/iconc_.ico">
+</head>
+
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="title">
+                СПОСОБЫ СОЗДАНИЯ “ХОЛСТА”
+                <div class="line"></div>
+            </div>
+            <div class="text ways-text">
+                <div class="extr extr-ways">1. Графический объект — «холст» для рисования на форме Form1 (указатель this) можно задать, например, одним оператором: Graphics g = this.CreateGraphics(); Примечание. Заметим, что стандартным образом Graphics g = new Graphics(); создать
+                    объект-холст не удается. На этом операторе генерируется ошибка: Для типа «System.Drawing.Graphics» не определен конструктор.
+                </div>
+                <div class="extr extr-ways">2. Еще пример задания графического контекста на визуальном компоненте PictureBox (ящик для рисования) через растровый объект класса Bitmap. В классе Form1 зададим два объекта: Graphics g; // графический объект — некий холст Bitmap buf;
+                    // буфер для Bitmap-изображения В конструктор Form1() добавим следующие операторы: buf = new Bitmap(pictureBox1.Width, pictureBox1.Height); // с размерами g = Graphics.FromImage(buf); // инициализация g
+                </div>
+                <div class="extr extr-ways">3. В принципе, иногда (если все графические операции выполняются внутри одной функции) эти четыре строки могут быть заменены одной строкой: Graphics g = Graphics.FromImage(new Bitmap(pictureBox1.Width, pictureBox1.Height)); После этого
+                    можно задать фон холста белым: g.Clear(Color.White);
+                </div>
+                <div class="extr extr-ways">4. Еще один пример задания «холста» на форме через дескриптор окна: Graphics g = Graphics.FromHwnd(this.Handle); Далее в примерах конкретизируются эти способы.
+                </div>
+            </div>
+            <nav class="nav nav_backnext">
+                <ul>
+                    <li class="var_nav var_nav_back">
+                        <div class="link_bg"></div>
+                        <div class="link_title">
+                            <a href="vvedenie.html"><span>назад</span></a>
+                            <div class="icon icon_back"><i class="fa fa-chevron-left icon"></i></div>
+                        </div>
+                    </li>
+                    <li class="var_nav var_nav_next">
+                        <div class="link_bg"></div>
+                        <div class="link_title">
+                            <a href="graphics.html"><span>вперед</span></a>
+                            <div class="icon icon_razdel"><i class="fa fa-chevron-right icon"></i></div>
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

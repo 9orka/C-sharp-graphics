@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/c.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>C# Graphic</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/iconc_.ico">
+</head>
+
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="title">
+                класс graphics
+                <div class="line"></div>
+            </div>
+            <div class="text ways-text">
+                <div class="extr extr_graphics">Он инкапсулирует поверхность рисования GDI+. Этот класс не наследуется. Методов в этом классе огромное количество, поэтому сначала представим их в таблице, а затем рассмотрим некоторые из них с примерами и пояснениями. В третьем столбце
+                    таблицы указывается число перегрузок метода, различающихся набором параметров (используйте интеллектуальную подсказку IntelliSense для выбора нужного Вам варианта метода).
+                    <br><br> Ниже приведена таблица с описанием методов класса "Graphics"
+                </div>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">№</th>
+                        <th scope="col">Имя метода</th>
+                        <th scope="col">Описание</th>
+                        <th scope="col">Число перегрузок</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Clear(Color)</td>
+                        <td>Очищает всю поверхность рисования и выполняет заливку поверхности указанным цветом фона.</td>
+                        <td class="peregr">1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>CopyFromScreen(Point, Point, Size)</td>
+                        <td>Выполняет передачу данных о цвете, соответствующих прямоугольной области пикселей, блоками битов с экрана на поверхность рисования объекта Graphics.</td>
+                        <td class="peregr">4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Dispose()</td>
+                        <td>Освобождает все ресурсы, используемые данным объектом Graphics.</td>
+                        <td class="peregr">1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>DrawArc(Pen, Rectangle, Single, Single)</td>
+                        <td>Рисует дугу, которая является частью эллипса, заданного структурой Rectangle.</td>
+                        <td class="peregr">4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>DrawBezier(Pen, Point, Point, Point, Point)</td>
+                        <td>Рисует кривую Безье, определяемую четырьмя структурами Point.</td>
+                        <td class="peregr">3</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>DrawBeziers(Pen, Point[])</td>
+                        <td>Рисует несколько (N) кривых Безье, определяемых массивом из (3N+1) структур Point.</td>
+                        <td class="peregr">2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>DrawCloseCurve(Pen, Point[ ])</td>
+                        <td>Рисует замкнутый фундаментальный сплайн</td>
+                        <td class="peregr">4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>DrawEllipse(Pen, Rectangle)</td>
+                        <td>Рисует эллипс</td>
+                        <td class="peregr">4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td>DrawIcon(Icon, Rectangle)</td>
+                        <td>Рисует значок</td>
+                        <td class="peregr">2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10</th>
+                        <td>DrawImage(Image image, int x, int y)</td>
+                        <td>Рисует заданное изображение image, используя его фактический размер в месте с координатами (x,y)</td>
+                        <td class="peregr">30</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11</th>
+                        <td>DrawLine(Pen, Point, Point)</td>
+                        <td>Проводит линию, соединяющую две структуры Point.</td>
+                        <td class="peregr">4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">12</th>
+                        <td>DrawLines(Pen, Point[ ])</td>
+                        <td>Рисует набор сегментов линий, которые соединяют массив структур Point.</td>
+                        <td class="peregr">2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">13</th>
+                        <td>DrawPath(Pen, gp)</td>
+                        <td>Рисует пером Pen объект GraphicsPath gp.</td>
+                        <td class="peregr">1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">14</th>
+                        <td>DrawPie(Pen, Rectangle, Single, Single)</td>
+                        <td>Рисует сектор, который определяется эллипсом, заданным структурой Rectangle и двумя радиалtьными линиями.</td>
+                        <td class="peregr">4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">15</th>
+                        <td>DrawPolygon(Pen, Point[])</td>
+                        <td>Рисует многоугольник, определяемый массивом структур Point.</td>
+                        <td class="peregr">2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">16</th>
+                        <td>DrawRectangle(Pen, Rectangle)</td>
+                        <td>Рисует прямоугольник, определяемый структурой Rectangle.</td>
+                        <td class="peregr">3</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">17</th>
+                        <td>DrawRectangles(Pen, Rectangle[])</td>
+                        <td>Рисует набор прямоугольников, определяемых структурами Rectangle.</td>
+                        <td class="peregr">2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">18</th>
+                        <td>DrawString(String, Font, Brush, PointF)</td>
+                        <td>Создает указываемую текстовую строку в заданном месте с помощью определяемых объектов Brush и Font.</td>
+                        <td class="peregr">6</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">19</th>
+                        <td>Equals(Object)</td>
+                        <td>Определяет, равен ли заданный объект текущему объекту. (Унаследовано от Object.)</td>
+                        <td class="peregr">1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">20</th>
+                        <td>FillClosedCurve(Brush, Point[])</td>
+                        <td>Заполняет внутреннюю часть замкнутой фундаментальной кривой, определяемой массивом структур Point.</td>
+                        <td class="peregr">6</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">21</th>
+                        <td>FillPolygon(Brush, Point[])</td>
+                        <td>Заполняет внутреннюю часть многоугольника, определяемого массивом точек, заданных структурами Point.</td>
+                        <td class="peregr">4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">22</th>
+                        <td>FillRectangle(Brush, Rectangle)</td>
+                        <td>Заполняет внутреннюю часть прямоугольника, определяемого структурой Rectangle.</td>
+                        <td class="peregr">4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">23</th>
+                        <td>FillRegion(Brush, Region)</td>
+                        <td>Заполняет внутреннюю часть объекта Region.</td>
+                        <td class="peregr">1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">24</th>
+                        <td>IntersectClip(Region)</td>
+                        <td>Обновляет вырезанную область данного объекта, включая в нее пересечение текущей вырезанной области и указанной структуры</td>
+                        <td class="peregr">3</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">25</th>
+                        <td>ResetClip()</td>
+                        <td>Сбрасывает выделенную область g, делая ее бесконечной</td>
+                        <td class="peregr">1</td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav class="nav nav_backnext">
+                <ul>
+                    <li class="var_nav var_nav_back">
+                        <div class="link_bg"></div>
+                        <div class="link_title">
+                            <a href="ways.html"><span>назад</span></a>
+                            <div class="icon icon_back"><i class="fa fa-chevron-left icon"></i></div>
+                        </div>
+                    </li>
+                    <li class="var_nav var_nav_next">
+                        <div class="link_bg"></div>
+                        <div class="link_title">
+                            <a href="example.html"><span>вперед</span></a>
+                            <div class="icon icon_razdel"><i class="fa fa-chevron-right icon"></i></div>
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

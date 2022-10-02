@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/c.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>C# Graphic</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/iconc_.ico">
+</head>
+
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="title">
+                Пример
+                <div class="line"></div>
+            </div>
+            <div class="text example-text">
+                <div class="extr extr-example">Здесь мы на примере рассмотрим, графические возможности языка C#.
+                    <br> <br>Создадим новый проект и на форме установим <b>кнопку (button)</b>.
+                    <br> <br>Двойным щелчком на кнопке создадим <b>событие</b> и допишем несколько строк рисования непосредственно на форме:
+                </div>
+                <div class="extr extr_example_code">
+                    private void button1_Click(object sender, EventArgs e) {
+                    <br>Graphics gr; <i>// Создаём переменную gr типа Graphics (холст для рисования)</i>
+                    <br>gr = this.CreateGraphics(); <i>// Инициализируем созданную переменную</i>
+                    <br>Pen MyPen; <i>// Создаем карандш</i>
+                    <br>MyPen типа Pen MyPen = new Pen(Color.Red); <i>// Нашему карандашу присваиваем красный цвет</i>
+                    <br>gr.DrawEllipse(MyPen, 55, 55, 100, 50);<i>//Рисуем эллипс красным цветом</i>
+                    <br>MyPen = new Pen(Color.Navy); <i>//Присваиваем карандашу тёмносиний цвет</i>
+                    <br>gr.DrawLine(MyPen, 30, 55,300, 55); <i>//Рисуем линию тёмносиним цветом</i>
+                    <br>gr.FillRectangle(Brushes.Blue, 90, 100, 300, 100); <i>//Рисуем залитый синей краской прямоугольник</i>
+                    <br>gr.DrawString("Paint!", new Font("Arial", 22),new SolidBrush(Color.Green), 10, 10); <i>//Выводим надпись Paint! На экран зелёным цветом</i>
+                    <br>}
+                </div>
+
+                <div class="extr extr-example ">
+                    На форме появился рисунок. Попробуем изменить размер формы в ширину примерно наполовину, а потом восстановим ширину формы до исходной. Видно, что рисунок на форме <b>пропадает</b>.
+                </div>
+                <img src="img/2.png" class="examlpe_pict">
+                <div class="extr extr-example ">
+                    Рисунок так же будет пропадать, если свернуть, а затем развернуть форму или перекрыть форму окном другой программы. Перерисовывать каждый раз форму можно если создать событие Pain для формы и прописать в нём все графические функции, которые мы записали
+                    для события нажатия кнопки Button1. Это не очень хорошее решение, особенно тогда, когда рисунок будет изменяться динамически в процессе работы программы.
+                    <br><br>Можно использовать другой способ, который заключается в том, чтобы установить на форме объект pictureBox1 (контейнер картинок), создать виртуальный графический лист Bitmap, на котором будут храниться рисунки, и при любых изменениях
+                    формы лист будет копироваться на pictureBox1. Расположим объект pictureBox1 на форме и якорем (Ancor) зададим привязку pictureBox1 со всех сторон, так, что бы pictureBox1 изменял свои размеры синхронно с изменением размеров формы.
+                </div>
+                <img src="img/3.png" class="examlpe_pict examlpe_pict_wide">
+                <div class="extr extr_example_code">
+                    public partial class Form1 : Form
+                    <br> {
+                    <br><i>// Объявляем глобальные переменные</i>
+                    <br><i>// Объявляем переменную виртуальный лист mbit типа Bitmap</i>
+                    <br>Bitmap mbit;
+                    <br><i>// Объявляем переменную gr типа Graphics</i>
+                    <br> Graphics gr;
+                    <br> public Form1()
+                    <br> {
+                    <br> InitializeComponent();
+                    <br> }
+                    <br> private void button1_Click(object sender, EventArgs e)
+                    <br>{
+                    <br><i>// Инициализируем объявленные глобальные переменные</i>
+                    <br> mbit = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    <br>gr = Graphics.FromImage(mbit);
+                    <br> <i>// Далее, прорисовываем на виртуальном листе нужные элементы</i>
+                    <br> gr.FillRectangle(Brushes.White, 0, 0, pictureBox1.Width - 1, pictureBox1.Height - 1);
+                    <br> Pen MyPen = new Pen(Color.Red);
+                    <br> gr.DrawEllipse(MyPen, 55, 55, 100, 50);
+                    <br> MyPen = new Pen(Color.Navy);
+                    <br> gr.DrawLine(MyPen, 30, 55, 300, 55);
+                    <br> gr.FillRectangle(Brushes.Blue, 90, 100, 300, 100);
+                    <br>gr.DrawString("Paint!", new Font("Arial", 22), new SolidBrush(Color.Green), 10, 10);
+                    <br><i>// Копируем виртуальный лист с рисунком на лист pictureBox1</i>
+                    <br>pictureBox1.Image = mbit;
+                    <br>}
+                    <br>}
+                </div>
+                <div class="extr extr-example ">
+                    Теперь если запустить приложение и нажать кнопку Button1 то получим такую картинку:
+                </div>
+                <img src="img/4.png" class="examlpe_pict">
+                <div class="extr extr-example ">
+                    Теперь можно смело изменять размер формы, сворачивать и разворачивать, перекрывать другими окнами - картинка никуда не пропадает. Рассмотрим функции рисования и параметры, передаваемые этим функциям. Для обозначения координат введём следующие обозначения:
+                    xn, yn - начальные координаты примитива, xe,ye - конечные координаты примитива.
+
+                </div>
+                <img src="img/5.jpg" class="examlpe_pict">
+                <div class="extr extr-example ">
+                    <br><b>Рисование линии:</b>
+                    <br>gr.DrawLine(Pen, xn, yn, xe, ye);
+                    <br><b>Рисование прямоугольника:</b>
+                    <br>gr.DrawRectangle(Pen, xn, yn, xe, ye);
+                    <br><b>Рисование эллипса (эллипс рисуется внутри виртуального прямоугольника):</b>
+                    <br>gr.DrawEllipse(Pen, xn, yn, xe, ye );
+                    <br><b>Для рисоания залитых прямоугольника и эллипса используются следующие функции:</b>
+                    <br>gr.FillRectangle(Brushes.Blue, xn, yn, xe, ye); - прямоугольник
+                    <br>gr.FillEllipse(Brushes.Blue, xn, yn, xe, ye); - эллипс
+                    <br><br><b>Параметр Brushes (кисти) задаёт цвет заливки фигуры:
+
+                    <p style="color: black" align="center">Black - чёрный</p>
+                    <p style="color: maroon" align="center"> Maroon - бордовый</p>
+                    <p style="color: green" align="center">Green - зелёный</p>
+                    <p style="color: olive" align="center">Olive - оливковый</p>
+                    <p style="color: navy" align="center">Navy - темно-синий</p>
+                    <p style="color: purple" align="center">Purple - пурпурный </p>
+                    <p style="color: lime" align="center">Lime - лимонный </p>
+                    <p style="color: teal" align="center">Teal - морской воды </p>
+                    <p style="color: gray" align="center"> Gray - серый </p>
+                    <p style="color: silver" align="center">Silver - светло-серый </p>
+                    <p style="color: red" align="center">Red - красный </p>
+                    <p style="color: blue" align="center">Blue - синий </p>
+                    <p style="color: yellow" align="center">Yellow - жёлтый </p>
+                    <p style="color: fuchsia" align="center">Fuchsia - сиреневый </p>
+                    <p style="color: aqua" align="center">Aqua - голубой </p>
+                    <p style="color: white" align="center">White - белый</p>
+                </b>
+                </div>
+            </div>
+            <nav class="nav nav_backnext ">
+                <ul>
+                    <li class="var_nav var_nav_back ">
+                        <div class="link_bg "></div>
+                        <div class="link_title ">
+                            <a href="graphics.html"><span>назад</span></a>
+                            <div class="icon icon_back "><i class="fa fa-chevron-left icon "></i></div>
+                        </div>
+                    </li>
+                    <li class="var_nav var_nav_next ">
+                        <div class="link_bg "></div>
+                        <div class="link_title ">
+                            <a href="test.html"><span>пройти тест</span></a>
+                            <div class="icon icon_razdel "><i class="fa fa-chevron-right icon "></i></div>
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

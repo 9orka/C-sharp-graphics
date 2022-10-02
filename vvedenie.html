@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/c.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>C# Graphic</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/iconc_.ico">
+</head>
+
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="title">
+                ВВЕДЕНИЕ
+                <div class="line"></div>
+            </div>
+            <div class="text vvedenie-text">
+                <div class="extr">На примере графики наглядно видны преимущества ООП, смысл использования классов, их методов и свойств. Добавляя в пространство имен своего проекта соответствующие библиотеки, вы получаете сразу набор инструментов, необходимых для графики.
+                    Это графические примитивы (линии, прямоугольники, эллипсы и т.п.), перо для черчения, кисть для закраски и много других полезных объектов и методов.</div>
+
+                <div class="extr extr_img"><br>2D-графика делится, как вы знаете, на растровую и векторную. Растровое изображение — это набор цветных пикселей, заданных в прямоугольной области, хранящихся в файлах *.bmp, *.jpg, *.png и т.п. Самый простой растровый редактор — программа
+                    Paint. Векторная графика намного экономнее (по объемам памяти) растровой. Так для рисования прямоугольника достаточно задать координаты двух точек (левого верхнего и правого нижнего углов) и цвет и толщину линии. В этом разделе в основном
+                    рассмотрим методы векторной графики.<br><br>Пространство имен System.Drawing (Рисование) обеспечивает доступ к функциональным возможностям графического интерфейса GDI+ , используя около 50 (!) классов, в том числе класс Graphics. Чуть
+                    позже мы будем использовать дополнительные пространства имен System.Drawing.Drawing2D, System.Drawing.Imaging, System.Drawing.Printing, System.Drawing.Text, расширяющие функциональные возможности библиотеки System.Drawing.
+                    <img src="img/vector-raster.png" alt="vector-raster" align="right" class="vector-raster"></div>
+
+                <div class="extr"><br>Класс Graphics предоставляет методы рисования на устройстве отображения (другие термины — графический контекст, «холст»). Определимся сразу, на чем мы хотим рисовать. Далее в примерах он обозначается как объект g.</div>
+            </div>
+            <nav class="nav nav_backnext">
+                <ul>
+                    <li class="var_nav var_nav_back">
+                        <div class="link_bg"></div>
+                        <div class="link_title">
+                            <a href="razdely.html"><span>назад</span></a>
+                            <div class="icon icon_back"><i class="fa fa-chevron-left icon"></i></div>
+                        </div>
+                    </li>
+                    <li class="var_nav var_nav_next">
+                        <div class="link_bg"></div>
+                        <div class="link_title">
+                            <a href="ways.html"><span>вперед</span></a>
+                            <div class="icon icon_razdel"><i class="fa fa-chevron-right icon"></i></div>
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
